@@ -84,7 +84,7 @@ cc_defaults {
     name: "vixl-arm",
     defaults: ["vixl-common"],
     cppflags: [
-        "-DVIXL_CODE_BUFFER_MALLOC",
+        "-DVIXL_CODE_BUFFER_MMAP",
         "-DVIXL_INCLUDE_TARGET_T32",
         ],
     srcs: ["src/aarch32/*.cc"],
@@ -128,6 +128,13 @@ cc_library {
     vndk: {
         enabled: true,
     },
+    target: {
+        android: {
+            lto: {
+                 thin: true,
+            },
+        },
+    },
 }
 
 cc_library {
@@ -141,6 +148,13 @@ cc_library {
     vendor_available: true,
     vndk: {
         enabled: true,
+    },
+    target: {
+        android: {
+            lto: {
+                 thin: true,
+            },
+        },
     },
 }
 
