@@ -88,6 +88,12 @@ cc_defaults {
         "-DVIXL_INCLUDE_TARGET_T32",
         ],
     srcs: ["src/aarch32/*.cc"],
+
+    arch: {
+        arm: {
+            instruction_set: "arm",
+        },
+    },
 }
 
 cc_defaults {
@@ -99,6 +105,12 @@ cc_defaults {
         "-DVIXL_INCLUDE_TARGET_A64",
         ],
     srcs: ["src/aarch64/*.cc"],
+
+    arch: {
+        arm: {
+            instruction_set: "arm",
+        },
+    },
 }
 
 cc_defaults {
